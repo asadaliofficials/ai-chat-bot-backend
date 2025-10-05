@@ -1,3 +1,11 @@
-export const messageController = (req, res) => {
-	res.send('hello from the message controller!');
+import geminiFun from '../services/gemini.service.js';
+
+export const messageController = async (req, res) => {
+	try {
+		const response = await geminiFun();
+		res.status(200).json({ responce: response });
+	} catch (error) {
+		console.log(error);
+		res.status(500).send('there is an error, please try again later');
+	}
 };
