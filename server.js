@@ -1,5 +1,7 @@
 import app from './src/app.js';
 
+import { PORT } from './src/config/env.config.js';
 
-
-app.listen()
+app.listen(PORT, () => {
+	console.log(`server is listening on port: ${PORT}`);
+});
